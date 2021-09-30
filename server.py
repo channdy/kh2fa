@@ -8,6 +8,9 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "APP_SECRET_KEY"
 # Bootstrap(app)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
 
 # homepage route
 @app.route("/")
